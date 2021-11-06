@@ -59,8 +59,7 @@ snapPoints={({ minHeight }) => minHeight}
             lineColor={state.lineColor}
             lineWidth={state.lineWidth}
             fillColor={
-            //   state.fillWithColor ? state.fillColor : 'transparent'
-                 state.fillColor
+              state.fillWithColor ? state.fillColor : 'transparent'
             }
             backgroundColor={state.backgroundColor}
             defaultValue={defaultSketchValue}

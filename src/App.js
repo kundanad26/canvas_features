@@ -55,14 +55,11 @@ function App() {
     setOpen(false);
      setState({...state,
        lineColor:col.hex,
-       fillColor:col.hex
+      //  fillColor:col.hex
      }
      )
   }
-  const handleUndo=()=>{
-    setState({...state,
-    undo:1})
-  }
+ 
   const handleClick=(val)=>{
      setOpen(false);
      setState({...state,

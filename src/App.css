@@ -1,15 +1,16 @@
- .App {
- display: flex;
-  justify-content: center; 
-  
-}
+
 .parent
 {
-  position: relative;
+  position:relative;
   width:100%;
   height: 100vh;
   z-index: 0;
 }
+
+ .child
+ {
+   position: absolute;
+ }
 .Bottom
 {
   position:absolute;
@@ -50,4 +51,4 @@
   to {
     transform: rotate(360deg);
   }
-} 
+}  

@@ -1,15 +1,15 @@
  import { SettingsPowerRounded } from '@material-ui/icons';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
  import ReactPlayer from 'react-player';
  import Bs from './BottomSheet';
- import SketchFieldDemo from './Sketch';
- import {Tools} from 'react-sketch';
+ import Tools from './react-sketch/src/tools';
  import Picker from './Colorpicker';
-
 //  import  from 'react-spring-bottom-sheet';
  import './App.css';
  import './Styles.css';
+ import { SketchField } from './react-sketch/src/components/SketchField/index';
 import picker from './Colorpicker';
+import CanvasDraw from "react-canvas-draw";
 // import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 function App() {
    const [open,setOpen]=useState(false);
@@ -27,7 +27,7 @@ function App() {
     enableRemoveSelected: false,
     fillWithColor: false,
     fillWithBackgroundColor: false,
-    drawings: [],
+    drawings:[],
     canUndo: true,
     canRedo: false,
     undoSteps:15,
@@ -52,20 +52,21 @@ function App() {
   const handle=(col)=>
   {
     console.log(col,'color');
-    setOpen(false);
+   
      setState({...state,
        lineColor:col.hex,
       //  fillColor:col.hex
-     }
+     }  
      )
+    setOpen(false);
   }
  
   const handleClick=(val)=>{
      setOpen(false);
      setState({...state,
       tool:Tools[val],
-      enableRemoveSelected: Tools[val] === Tools.Select,
-      enableCopyPaste: Tools[val] === Tools.Select
+      enableRemoveSelected: Tools[val] === Tools?.Select,
+      enableCopyPaste: Tools[val] === Tools?.Select
     })
    }
   return(
@@ -75,7 +76,7 @@ function App() {
        height='100%'
       controls 
       url='https://www.youtube.com/watch?v=7sDY4m8KNLc'/>
-    <div className="child" >
+      <div className="child" >
       <button className='Bottom' onClick={()=>setOpen(true)}>Open</button>
       <Bs
       open={open}
@@ -84,7 +85,8 @@ function App() {
       handle={handle}
       state={state}
       />
-    </div>
+      
+      </div>
     </div>
   );
 }
